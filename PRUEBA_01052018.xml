@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd" Version="3.3" Serie="A" Folio="prueba-1" Fecha="2018-05-03T09:14:37" FormaPago="01" NoCertificado="20001000000300022824" SubTotal="821.75" Moneda="MXN" TipoCambio="1" Total="953.23" TipoDeComprobante="I" MetodoPago="PUE" LugarExpedicion="11560" Sello="o456+eJWiIxU4zjN8RFYi15tF18TVClhPzRJYrDuJ5k4i15GnsRXAzjrWUw/PHSPzF+RSn6H/X/JSu/31xFJCFxLsQAwh7vYjeE5Rsm2F2dhgvuIjpIRlYQBm0o4Wb2E12CPv6Dfa53VrA3zWycaabWGDL6pIF95OfY+yfjCa2JyuytHmCd87RKux5yoWFVXwMtBsVCnvBg0Qz9mqpOBfyNPJfN4dgbvPYMr6VOh3dw1079KhNjbOac/cxlxyfU6kkX8c/fs90S3MPQ27QRLLltXhbbjYf4TRhOHN2nW3nvuQhOGrbk9FyCCft5kJXblw5Sa6etpKyOKZp40AR255Q==" Certificado="MIIDiTCCAnGgAwIBAgIUMjAwMDEwMDAwMDAzMDAwMjI4MjQwDQYJKoZIhvcNAQEFBQAwSzEVMBMGA1UEAwwMQS5DLiBQcnVlYmFzMRAwDgYDVQQKDAdQcnVlYmFzMQswCQYDVQQGEwJNWDETMBEGA1UEBwwKQ3VhdWh0ZW1vYzAeFw0xNzA0MjgxODM0NDdaFw0yMjEwMTkxODM0NDdaMIGVMRowGAYDVQQDDBFDb21wdWhpcGVybWVnYXJlZDEaMBgGA1UEKQwRQ29tcHVoaXBlcm1lZ2FyZWQxGjAYBgNVBAoMEUNvbXB1aGlwZXJtZWdhcmVkMSMwIQYDVQQtDBpURVMwMzAyMDEwMDEgLyBURVMxMDMxN0E0NjEaMBgGA1UECwwRQ29tcHVoaXBlcm1lZ2FyZWQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCrF7Z1mytCR6XrnVnseTPdELc8IhR6SF2iYPvsW1QjGjkGZ8CVgBu24ParI95NoDEq6AuGqhJlK+uYAzRDIq8OckZmXeuT47kfS5mHKlw1GfLgPMN1fPgYmm0l7sh96eNvipTRMv2rsQ8+myTVkmiQVev0P+NHPlY+cL8QIq7Sd+ZuPIKPHwcdKlUIJEeosM/nSnS+JBXKdcue23gC/UWXJr4wFNa54Gkt8lBR4xzDthrDrqmILLwBHS/kVhY01SxaPheIFixlDCSKiGseFpMYa1h7jfymL++ljMz6J9ELN4mmMH3hofW5zwBtJRLkkjpQTNfxiRD819yoPO4GzbRXAgMBAAGjGjAYMAkGA1UdEwQCMAAwCwYDVR0PBAQDAgbAMA0GCSqGSIb3DQEBBQUAA4IBAQAj9NJAcBxKaP+QQu4wSev8ia+bYgpMVJr5iblNELiZxKk7W16x01i2goPqvEB0pmcjQb6desfWj24OP3tCbsNiin3+49MK+Qb2is1toyYUdwp0V3PPy04IaYXYjrqCABOBvFrubfaC9cGhMG+aILZfvuTCJ3oZpevj8JH70OEM1bW+2DVHM1lumweMWEucVdzfdmihRUfMk1MjctxUDakYSE+WgvnB5Q1GzW2eOtEdOxsC/ni5OerxSxed7tcJNhxCiJg77HdiyBLL2O+TZJI52anwS6ej6s9PsGbTeXJ5GldZVnPaiIsTzqfosqzYWszrYCinCKNPhnEWjewTD6hc">
+  <cfdi:Emisor Rfc="TES030201001" Nombre="Prueba" RegimenFiscal="601"/>
+  <cfdi:Receptor Rfc="XAXX010101000" Nombre="Fulanito Perez" UsoCFDI="G01"/>
+  <cfdi:Conceptos>
+    <cfdi:Concepto ClaveProdServ="39121721" NoIdentificacion="123456789" Cantidad="1" ClaveUnidad="KGM" Descripcion="tornillo 1/4" ValorUnitario="50" Importe="50">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Base="50" Importe="8"/>
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="26121505" NoIdentificacion="0101010021" Cantidad="3" ClaveUnidad="MTR" Descripcion="ALAMBRE DORADO" ValorUnitario="180.5" Importe="541.5">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Base="541.5" Importe="86.64"/>
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="23271818" NoIdentificacion="01234781255" Cantidad="1" ClaveUnidad="MTR" Descripcion="ALAMBRE MAGNETO" ValorUnitario="230.25" Importe="230.25">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Base="230.25" Importe="36.84"/>
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos TotalImpuestosTrasladados="131.48">
+    <cfdi:Traslados>
+      <cfdi:Traslado Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="131.48"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+</cfdi:Comprobante>
