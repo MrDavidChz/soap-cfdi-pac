@@ -3,7 +3,7 @@
 ## Instalación
 
 ```
-composer require mrdavidchz/soap-pac-cfdi
+composer require mrdavidchz/soap-pac-cfdi:dev-master
 ```
 ## Uso
 - Especificamos las credenciales para logearnos en el WS de FACTURA INTELIGENTE
@@ -18,13 +18,13 @@ $test       = true;
  * $password    Proporcionado por el PAC
  * $xml         Generado Previamente con toda la Esctructura de un CFDI 3.3
  * $referencia  Referencia para efectos de control
- * true         Para Endpoint de Pruebas Cambiar a false
+ * $test        Para Endpoint de Pruebas es true y para el Productivo es false
  * @type {PAC}
  */
 $pac = new PAC($username, $password, $xml, $referencia , $test);
-
+```
 - Ejemplo para validar si las credenciales y XML fueron validas.
-``
+```
 if ($pac->response()) {
    //Metodo para guardar el XML
    $pac->save('./timbrado_exitosooo.xml');
