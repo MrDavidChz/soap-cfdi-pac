@@ -1,0 +1,32 @@
+{
+    "name": "mrdavidchz/soap-pac-cfdi",
+    "description": "Librer\u0000a para enviar el Pre XML al PAC de Factura Inteligente y recibir el XML timbrado que sera v\u0000lido ante el SAT",
+	"homepage": "https://github.com/MrDavidChz/soap-cfdi-pac",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David de la Cruz",
+            "email": "david.delacruz921@gmail.com",
+			"role": "Full Stack Developer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+    "php" : ">=5.6.4"
+	},
+	"require-dev": {
+		"phpunit/phpunit" : "~5.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"MrDavidChz\\SoapPacCfdi\\": "src"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"MrDavidChz\\SoapPacCfdi\\Tests\\": "tests"
+		}
+
+}
