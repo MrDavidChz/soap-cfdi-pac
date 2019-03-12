@@ -55,7 +55,7 @@ class PAC
 
 
 
-    protected $client;
+    protected $cfdi;
 
     /**
      * Node Principal SOAP Result
@@ -81,49 +81,66 @@ class PAC
      *
      * @param string $username
      * @param string $password
-     * @param string $xml
-     * @param string $reference
-     * @param bool $test
-     * @param bool $CFDIResult
      */
-    public function __construct($username,$password,$xml,$reference,$test, $CFDIResult = 'TimbrarCFDIResult' )
+    public function __construct($username,$password, $test=false)
     {
         $this->username   = $username;
         $this->password   = $password;
-        $this->xml        = $xml;
-        $this->reference  = $reference;
         $this->test       = $test;
-        $this->CFDIResult = $CFDIResult;
 
-        $this->client     = $this->sendXML();
+    }
+    public function getTimbres(){
+        $client   = new SoapClient(static::WSDL_ENDPOINT_PRODUCTION, $this->options);
+
+            return $client->ConsultarCreditos([
+                'usuario'    => $this->username,
+                'password'   => $this->password
+            ]);
+
 
     }
 
 
-    /**
-     * [sendXML sending request to the WSDL endpoint]
-     * @return [type] [instance]
-     */
-    protected function sendXML(){
-        $endpoint = $this->wsdl_edpoint();
-        $client   = new SoapClient($this->wsdl_edpoint(), $this->options);
+    public function getPDF($uUID,$LogoBase64=''){
+        $client   = new SoapClient($this->wsdl_edpoint($this->test), $this->options);
 
-            return $client->TimbrarCFDI([
+            return $client->ObtenerPDF([
                 'usuario'    => $this->username,
                 'password'   => $this->password,
-                'cadenaXML'  => $this->xml,
-                'referencia' => $this->reference
+                'uUID'       => $uUID,
+                'LogoBase64' => $LogoBase64
             ]);
 
 
     }
 
     /**
+     * [sendXML sending request to the WSDL endpoint]
+     * @param string $xml
+     * @param string $reference
+     * @param bool $CFDIResult
+     * @return [type] [instance]
+     */
+    public function sendXML($xml='',$reference='',$CFDIResult = 'TimbrarCFDIResult'){
+          
+        $this->CFDIResult = $CFDIResult;
+        $client   = new SoapClient($this->wsdl_edpoint($this->test), $this->options);
+
+            return $this->cfdi  = $client->TimbrarCFDI([
+                'usuario'    => $this->username,
+                'password'   => $this->password,
+                'cadenaXML'  => $xml,
+                'referencia' => $reference
+            ]);
+            
+    }
+
+    /**
      * [wsdl_edpoint description]
      * @return [type] [description]
      */
-    protected function wsdl_edpoint(){
-        if ($this->test) {
+    protected function wsdl_edpoint($test){
+        if ($test) {
             return static::WSDL_ENDPOINT_TEST;
         } else {
             return static::WSDL_ENDPOINT_PRODUCTION;
@@ -136,7 +153,7 @@ class PAC
      */
     public function response()
     {
-        $request               = $this->client;
+        $request               = $this->cfdi;
         $OperacionExitosa      = $request->{$this->CFDIResult}->OperacionExitosa;
         $MensajeErrorDetallado = $request->{$this->CFDIResult}->MensajeErrorDetallado;
 
@@ -154,7 +171,7 @@ class PAC
      */
     public function getInfoTimbre($property='Timbre')
     {
-        $request = $this->client->{$this->CFDIResult};
+        $request = $this->cfdi->{$this->CFDIResult};
         
         $data    = ((array) $request->{$property});
         return $data;
@@ -166,7 +183,7 @@ class PAC
      * @return [type]           [STRING xml]
      */
     public function getXML($property='XMLResultado'){
-        $request    = $this->client->{$this->CFDIResult};
+        $request    = $this->cfdi->{$this->CFDIResult};
         return $request->{$property};
     }
 
@@ -189,7 +206,7 @@ class PAC
      * @return [type] [array]
      */
     public function errorMessage(){
-        $request = $this->client->{$this->CFDIResult};
+        $request = $this->cfdi->{$this->CFDIResult};
         $data = [
            'CodigoRespuesta'       =>  $request->CodigoRespuesta,
            'MensajeError'          =>  $request->MensajeError,
