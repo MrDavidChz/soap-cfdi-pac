@@ -50,7 +50,7 @@ class PAC
      *
      * @var string
      */
-    const WSDL_ENDPOINT_TEST = 'https://www.appfacturainteligente.com/WSTimbrado33Test/WSCFDI33.svc?WSDL'; 
+    const WSDL_ENDPOINT_TEST = 'https://app.appfacturainteligente.com/WSTimbrado33Test/WSCFDI33.svc?WSDL'; 
     const WSDL_ENDPOINT_PRODUCTION ='https://www.appfacturainteligente.com/WSTimbrado33/WSCFDI33.svc?WSDL';
 
 
